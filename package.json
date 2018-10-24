@@ -1,0 +1,28 @@
+{
+  "name": "postgraphile-artetecha-inflector",
+  "version": "0.0.1",
+  "description": "Override some of PostgraPhile's core inflectors with Artetecha's own favourite inflection rules.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artetecha/postgraphile-artetecha-inflector.git"
+  },
+  "keywords": [
+    "graphile",
+    "postgraphile",
+    "plugin",
+    "inflection",
+    "inflector",
+    "pg",
+    "artetecha"
+  ],
+  "author": "Vincenzo Russo <v@artetecha.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artetecha/postgraphile-artetecha-inflector/issues"
+  },
+  "homepage": "https://github.com/artetecha/postgraphile-artetecha-inflector#readme",
+  "files": [
+    "index.js"
+  ]
+}
