@@ -1,6 +1,6 @@
 {
   "name": "postgraphile-artetecha-inflector",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Override some of PostgraPhile's core inflectors with Artetecha's own favourite inflection rules.",
   "main": "index.js",
   "repository": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/artetecha/postgraphile-artetecha-inflector#readme",
   "files": [
-    "index.js"
+    "index.js",
+    "enhance-inflection.js"
   ]
 }
