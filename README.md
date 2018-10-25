@@ -18,14 +18,14 @@ Given a type, e.g. `Metadatum`:
 - Core `allRowsSimple` would be `allMetadataList`
 - Artetecha's is `metadata`
 
-### `singleRelationByKeys`
+### `singleRelationByKeys`
 
 Given a type `Author` with a 1:1 relationship to `Metadatum` on some `id` field
 
 - Core would create a field `metadatumByAuthorId` field on `Author`
 - Artetecha would simply create a field `metadatum`
 
-### `singleRelationByKeysBackwards`
+### `singleRelationByKeysBackwards`
 
 Given a type `Author` with a 1:1 relationship to `Metadatum` on some `id` field
 
