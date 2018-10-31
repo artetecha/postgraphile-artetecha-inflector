@@ -1,6 +1,33 @@
 const { enhanceCamelCase, enhancePluralize } = require("./enhance-inflection");
 
 module.exports = function PgArtetechaInflectorPlugin(builder) {
+  // Support for postgraphile-plugin-nested-mutations plugin.
+  // Currently, the plugin is defining its inflection rules in
+  // the wrong place ('build' hook rather than 'inflection' hook).
+  // @TODO: move this to 'inflection' once postgraphile-plugin-nested-mutations
+  // implements it in the right place.
+  builder.hook("build", build => {
+    const { inflection } = build;
+    return {
+      ...build,
+      pluralize: enhancePluralize(inflection),
+      camelCase: enhanceCamelCase(inflection.camelCase),
+      pgNestedFieldName(options) {
+        const {
+          constraint: {
+            tags: { forwardMutationName, reverseMutationName },
+          },
+          isForward,
+          foreignTable,
+        } = options;
+        const tableFieldName = inflection.tableFieldName(foreignTable);
+        return isForward
+          ? forwardMutationName || this.camelCase(`${tableFieldName}}`)
+          : reverseMutationName || this.camelCase(`${this.pluralize(tableFieldName)}`);
+      },
+    };
+  });
+
   builder.hook("inflection", inflection => {
     return {
       ...inflection,
